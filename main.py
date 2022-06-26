@@ -1,54 +1,23 @@
-from mailbox import MH
+import imp
 from flask import Flask, request, jsonify
-from mHTMLclass import mHTMLclass
 from mCustomText import mCustomText
-import webbrowser
+from mHeadMeta import mHeadMeta
+from mBodyMeta import mBodyMeta
+from mCreateFile import mCreateFile
+from mWebBrowser import mWebBrowser
+
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def userTesting():
-    # open in new tab
-    new = 2
+    mHead = mHeadMeta(mCustomText.mTitle)
+    mBody = mBodyMeta()
     # create HTML File using documentation
     mIndex = """
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s 
-    %s
-    %s
+    %s %s
+    """ % ( mHead, mBody)
 
-    
-    """ % (mHTMLclass.mDocType, 
-    mHTMLclass.mOpenHTML, 
-    mHTMLclass.mOpenHead, 
-    mHTMLclass.mMeta, 
-    mHTMLclass.mLinkCSS,
-    mHTMLclass.mOpenTitle, 
-    mCustomText.mTitle, 
-    mHTMLclass.mCloseTitle, 
-    mHTMLclass.mOpenBody,
-    mHTMLclass.mOpenHeadings1, 
-    mCustomText.mHelloWorldText, 
-    mHTMLclass.mCloseHeadings1,
-    mHTMLclass.mLinkJS, 
-    mHTMLclass.mCloseBody, 
-    mHTMLclass.mCloseHTML)
-
-    f = open("index.html", 'a')
-    f.write(mIndex)
-    f.close()
-    url = "index.html"
-    webbrowser.open(url,new)
-
+    mCreateFile("index.html", mIndex) # create html file
+    mWebBrowser("index.html") # launch file in web browser
     return '200'
