@@ -1,4 +1,4 @@
-from mHTMLclass import mHTMLclass
+from model.mHTMLclass import mHTMLclass
 class mHeadMeta:
     def __init__(self, mTitle):
         self.title = mTitle

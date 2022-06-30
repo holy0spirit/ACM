@@ -1,10 +1,11 @@
 import imp
 from flask import Flask, request, jsonify
-from mCustomText import mCustomText
-from mHeadMeta import mHeadMeta
-from mBodyMeta import mBodyMeta
-from mCreateFile import mCreateFile
-from mWebBrowser import mWebBrowser
+from model.mCustomText import mCustomText
+from component.mHeadMeta import mHeadMeta
+from component.mBodyMeta import mBodyMeta
+from anchor.mCreateFile import mCreateFile
+from anchor.mWebBrowser import mWebBrowser
+
 
 
 app = Flask(__name__)

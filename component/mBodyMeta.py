@@ -1,4 +1,4 @@
-from mHTMLclass import mHTMLclass
+from model.mHTMLclass import mHTMLclass
 class mBodyMeta:
     def __init__(self):
         pass
