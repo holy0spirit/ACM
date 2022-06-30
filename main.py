@@ -10,7 +10,7 @@ from mWebBrowser import mWebBrowser
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
-def userTesting():
+def Index():
     mHead = mHeadMeta(mCustomText.mTitle)
     mBody = mBodyMeta()
     # create HTML File using documentation
